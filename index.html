@@ -278,7 +278,7 @@ body{font-family:"Inter",sans-serif;background:var(--bg);color:var(--text);line-
     <div class="url-sec">
       <label><i class="fas fa-link"></i>&nbsp; URL Google Apps Script</label>
       <input type="text" id="api-url" placeholder="https://script.google.com/macros/s/.../exec" oninput="saveApiUrl()">
-      <div class="url-hint">Paste URL deploy dari Google Apps Script. Tersimpan otomatis di browser ini.</div>
+      <div class="url-hint">&#128274; Tersimpan di browser ini saja. Untuk permanen di semua perangkat, minta administrator isi <code>APPS_SCRIPT_URL</code> di file index.html.</div>
       <button class="btn-test" onclick="testConnection()"><i class="fas fa-plug"></i> Test Koneksi</button>
       <div id="test-result" class="test-res"></div>
     </div>
@@ -364,10 +364,10 @@ body{font-family:"Inter",sans-serif;background:var(--bg);color:var(--text);line-
 
   <div class="cfg-banner" id="config-banner">
     <div class="ctxt">
-      <strong>&#9888;&#65039; Hubungkan ke Google Sheets untuk data permanen</strong>
-      <p>Klik <strong>Input Data</strong> &rarr; paste URL Apps Script &rarr; klik Test. Buka Google Sheet &rarr; <code>Extensions &rarr; Apps Script</code> &rarr; paste kode &rarr; Deploy (Anyone).</p>
+      <strong>&#9888;&#65039; Belum terhubung ke Google Sheets</strong>
+      <p>Administrator perlu mengisi URL Apps Script di file <code>index.html</code> pada baris <code>var APPS_SCRIPT_URL = ""</code> agar data tersimpan permanen dan otomatis terhubung di semua perangkat.</p>
     </div>
-    <button class="btn-cfg" onclick="openModal()">Konfigurasi</button>
+    <button class="btn-cfg" onclick="openModal()">Konfigurasi Manual</button>
   </div>
 
   <div class="sec-title"><h2>Ringkasan Statistik</h2><p>Populasi, produksi, dan nilai aset instalasi pembibitan ternak</p></div>
@@ -627,7 +627,28 @@ body{font-family:"Inter",sans-serif;background:var(--bg);color:var(--text);line-
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-var API_URL = localStorage.getItem("gs_api_url") || "";
+// ══════════════════════════════════════════════════════
+// PASTE URL GOOGLE APPS SCRIPT DI BAWAH INI (sekali saja)
+// Contoh: var APPS_SCRIPT_URL = "https://script.google.com/macros/s/ABC.../exec";
+// ══════════════════════════════════════════════════════
+var APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbydYUecC7PwEU8Y_s7d6cfgDD4w7iP0gOh0BpKS311SKdFGvO6IrI6YhdDi43wqAigTmw/exec";  // <-- GANTI DENGAN URL ANDA
+
+// Otomatis: pakai APPS_SCRIPT_URL jika ada, fallback ke localStorage
+var API_URL = APPS_SCRIPT_URL || localStorage.getItem("gs_api_url") || "";
+// Simpan ke localStorage agar konsisten
+if (APPS_SCRIPT_URL) {
+  try { localStorage.setItem("gs_api_url", APPS_SCRIPT_URL); } catch(e){}
+}
+// Auto-hide banner & pre-fill URL input jika sudah dikonfigurasi
+document.addEventListener("DOMContentLoaded", function() {
+  var finalUrl = APPS_SCRIPT_URL || localStorage.getItem("gs_api_url") || "";
+  if (finalUrl) {
+    var banner = document.getElementById("config-banner");
+    if (banner) banner.classList.add("hidden");
+    var urlInput = document.getElementById("api-url");
+    if (urlInput) urlInput.value = finalUrl;
+  }
+});
 var kLbl = ["Jan 23","Feb 23","Mar 23","Apr 23","Mei 23","Jun 23","Jul 23","Ags 23","Sep 23","Okt 23","Nov 23","Des 23","Jan 24","Feb 24","Mar 24","Apr 24","Mei 24","Jun 24","Jul 24","Ags 24","Sep 24","Okt 24","Nov 24","Des 24","Jan 25","Feb 25","Mar 25","Apr 25","Mei 25","Jun 25","Jul 25","Ags 25","Sep 25","Okt 25","Nov 25","Des 25"];
 var kBase = [47,54,56,56,57,60,61,65,72,75,77,90,90,91,97,98,92,76,74,57,72,83,80,90,91,99,97,98,92,76,74,57,50,57,50,90];
 var bLbl  = ["Jan 24","Feb 24","Mar 24","Apr 24","Mei 24","Jun 24","Jul 24","Ags 24","Sep 24","Okt 24","Nov 24","Des 24","Jan 25","Feb 25","Mar 25","Apr 25","Mei 25","Jun 25","Jul 25","Ags 25","Sep 25","Okt 25","Nov 25","Des 25"];
@@ -675,7 +696,7 @@ function saveData(type){
   .then(function(res){ btn.disabled=false; btn.innerHTML="<i class=\"fas fa-cloud-upload-alt\"></i> Simpan ke Google Sheets"; if(res.status==="success"){ showToast("Data berhasil disimpan!","success"); updateLastUpdate(); loadAllData(); } else { showToast("Gagal: "+(res.message||"error"),"error"); } })
   .catch(function(){ btn.disabled=false; btn.innerHTML="<i class=\"fas fa-cloud-upload-alt\"></i> Simpan ke Google Sheets"; showToast("Gagal menghubungi server.","error"); });
 }
-function fetchSheet(sheetName,callback){ var url=localStorage.getItem("gs_api_url")||""; if(!url){ callback([]); return; } fetch(url+"?sheet="+sheetName).then(function(r){ return r.json(); }).then(function(d){ callback(Array.isArray(d)?d:[]); }).catch(function(){ callback([]); }); }
+function fetchSheet(sheetName,callback){ var url=(typeof APPS_SCRIPT_URL!=="undefined"&&APPS_SCRIPT_URL)?APPS_SCRIPT_URL:(localStorage.getItem("gs_api_url")||""); if(!url){ callback([]); return; } fetch(url+"?sheet="+sheetName).then(function(r){ return r.json(); }).then(function(d){ callback(Array.isArray(d)?d:[]); }).catch(function(){ callback([]); }); }
 function renderMonthly(rows,tbodyId,isItik){
   var tbody=document.getElementById(tbodyId);
   if(!rows.length){ tbody.innerHTML="<tr class=\"empty-row\"><td colspan=\"8\">Belum ada data &mdash; klik Tambah untuk mulai</td></tr>"; return; }
