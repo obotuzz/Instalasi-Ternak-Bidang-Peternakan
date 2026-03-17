@@ -372,7 +372,7 @@ body{font-family:"Inter",sans-serif;background:var(--bg);color:var(--text);line-
 
   <div class="sec-title"><h2>Ringkasan Statistik</h2><p>Populasi, produksi, dan nilai aset instalasi pembibitan ternak</p></div>
   <div class="stats-grid">
-    <div class="sc sk"><div class="sc-head"><div class="sc-icon"><i class="fas fa-horse"></i></div><span class="sc-trend up"><i class="fas fa-arrow-up"></i> +190%</span></div><div class="sc-val" id="val-k">90</div><div class="sc-lbl">Kambing PE</div><div class="sc-det">Dari 31 ekor (Jan 2023) &bull; Tumbuh pesat</div></div>
+    <div class="sc sk"><div class="sc-head"><div class="sc-icon"><i class="fas fa-horse"></i></div><span class="sc-trend up"><i class="fas fa-arrow-up"></i> +190%</span></div><div class="sc-val" id="val-k">92</div><div class="sc-lbl">Kambing (PE &amp; Senduro)</div><div class="sc-det">90 PE + 2 Senduro &bull; Total 92 ekor (Des 2025)</div></div>
     <div class="sc sb"><div class="sc-head"><div class="sc-icon"><i class="fas fa-piggy-bank"></i></div><span class="sc-trend dn"><i class="fas fa-arrow-down"></i> Krisis</span></div><div class="sc-val" id="val-b">38</div><div class="sc-lbl">Babi Yorkshire</div><div class="sc-det">Hanya anak &bull; Induk habis Jul&ndash;Ags 2025</div></div>
     <div class="sc si"><div class="sc-head"><div class="sc-icon"><i class="fas fa-feather"></i></div><span class="sc-trend dn"><i class="fas fa-arrow-down"></i> -22%</span></div><div class="sc-val" id="val-i">244</div><div class="sc-lbl">Itik Alabio</div><div class="sc-det">Dari 315 ekor (Jan 2025)</div></div>
     <div class="sc sa"><div class="sc-head"><div class="sc-icon"><i class="fas fa-coins"></i></div><span class="sc-trend dn"><i class="fas fa-arrow-down"></i> -33%</span></div><div class="sc-val" id="val-a">Rp308M</div><div class="sc-lbl">Nilai Aset</div><div class="sc-det">Dari Rp 462M (Des 2024)</div></div>
@@ -394,7 +394,7 @@ body{font-family:"Inter",sans-serif;background:var(--bg);color:var(--text);line-
 <section id="page-produksi" class="page-section">
   <div class="sec-title"><h2>Detail Populasi per Ternak</h2><p>Grafik bulanan masing-masing jenis ternak</p></div>
   <div class="chart-grid">
-    <div class="cc"><div class="cc-title">&#x1F410; Kambing PE</div><div class="cc-sub">36 bulan (Jan 2023 &ndash; Des 2025)</div><div class="cw h240"><canvas id="cKambing"></canvas></div></div>
+    <div class="cc"><div class="cc-title">&#x1F410; Kambing PE &amp; Senduro</div><div class="cc-sub">36 bulan (Jan 2023 &ndash; Des 2025) &bull; 2 ekor Senduro masuk Nov 2025</div><div class="cw h240"><canvas id="cKambing"></canvas></div></div>
     <div class="cc"><div class="cc-title">&#x1F437; Babi Yorkshire</div><div class="cc-sub">24 bulan (Jan 2024 &ndash; Des 2025)</div><div class="cw h240"><canvas id="cBabi"></canvas></div></div>
   </div>
 
@@ -424,11 +424,11 @@ body{font-family:"Inter",sans-serif;background:var(--bg);color:var(--text);line-
   <div class="animal-grid">
 
     <div class="acard ak">
-      <div class="acard-head"><div class="acard-ic">&#x1F410;</div><div class="acard-inf"><h3>Kambing PE (Peranakan Etawah)</h3><p>Aset: Rp220,5jt (Des24) &rarr; Rp294,6jt (Apr25)</p></div><div class="acard-num"><div class="n" id="pop-k">90</div><div class="l">ekor</div></div></div>
-      <div class="stok-row"><div class="stok-c"><div class="sl">Pejantan</div><div class="sv">20 ekor</div><div class="sd">Gen 2021&ndash;2024</div></div><div class="stok-c"><div class="sl">Induk betina</div><div class="sv">14 ekor</div><div class="sd">Turun dari 28 ekor</div></div><div class="stok-c"><div class="sl">Anak &amp; remaja</div><div class="sv">56 ekor</div><div class="sd">0&ndash;12 bulan</div></div></div>
+      <div class="acard-head"><div class="acard-ic">&#x1F410;</div><div class="acard-inf"><h3>Kambing PE &amp; Senduro</h3><p>90 ekor PE + 2 ekor Senduro (masuk Nov 2025)</p></div><div class="acard-num"><div class="n" id="pop-k">92</div><div class="l">ekor</div></div></div>
+      <div class="stok-row"><div class="stok-c"><div class="sl">Pejantan PE</div><div class="sv">20 ekor</div><div class="sd">Gen 2021&ndash;2024 + 1 Senduro</div></div><div class="stok-c"><div class="sl">Induk betina PE</div><div class="sv">14 ekor</div><div class="sd">+ 1 Senduro betina (Nov 2025)</div></div><div class="stok-c"><div class="sl">Anak &amp; remaja</div><div class="sv">56 ekor</div><div class="sd">0&ndash;12 bulan (PE)</div></div></div>
       <div class="acard-div"></div>
-      <div class="stok-row"><div class="stok-c"><div class="sl">Lahir 2024</div><div class="sv">35 ekor</div><div class="sd">Sepanjang tahun</div></div><div class="stok-c"><div class="sl">Jual 2024</div><div class="sv">15 ekor</div><div class="sd">Ke masyarakat</div></div><div class="stok-c"><div class="sl">Mati 2024</div><div class="sv">5 ekor</div><div class="sd">2 induk + 3 anak</div></div></div>
-      <div class="status-row"><div class="ss ok"><div class="st">&#9989; Tumbuh pesat</div><div class="sd">31 &rarr; 99 ekor dalam 2 tahun.</div></div><div class="ss ok"><div class="st">&#9989; Regenerasi aktif</div><div class="sd">56 anak siap jadi induk baru.</div></div><div class="ss wn"><div class="st">&#9888; Induk lama menipis</div><div class="sd">Induk 2022&amp;2023 habis. Butuh penambahan.</div></div><div class="ss wn"><div class="st">&#9888; Populasi turun</div><div class="sd">99 ekor (Feb) &rarr; 90 ekor (Des 2025).</div></div></div>
+      <div class="stok-row"><div class="stok-c"><div class="sl">Lahir 2024</div><div class="sv">35 ekor</div><div class="sd">Sepanjang tahun (PE)</div></div><div class="stok-c"><div class="sl">Pengadaan Senduro</div><div class="sv">2 ekor</div><div class="sd">1 jantan + 1 betina (Nov 2025)</div></div><div class="stok-c"><div class="sl">Mati 2024</div><div class="sv">5 ekor</div><div class="sd">2 induk + 3 anak (PE)</div></div></div>
+      <div class="status-row"><div class="ss ok"><div class="st">&#9989; Tumbuh pesat</div><div class="sd">31 &rarr; 92 ekor (Des 2025) termasuk 2 ekor Senduro baru.</div></div><div class="ss ok"><div class="st">&#9989; Diversifikasi jenis</div><div class="sd">Pengadaan 2 ekor Senduro (Nov 2025) — 1 jantan &amp; 1 betina.</div></div><div class="ss wn"><div class="st">&#9888; Induk PE lama menipis</div><div class="sd">Induk 2022&amp;2023 habis. Butuh penambahan induk PE baru.</div></div><div class="ss wn"><div class="st">&#9888; Senduro baru masuk</div><div class="sd">Perlu pemantauan adaptasi &amp; program perkawinan Senduro.</div></div></div>
       <div class="monthly-sec"><h4>Dinamika Bulanan Kambing <button onclick="openModal();switchTab('kambing')"><i class="fas fa-plus"></i> Tambah</button></h4><div class="tscroll"><table class="mtable"><thead><tr><th>Bulan</th><th>Awal</th><th class="cb">Lahir</th><th class="cs">Jual</th><th class="cd">Mati</th><th>Baru</th><th class="cp">Akhir</th><th>Catatan</th></tr></thead><tbody id="monthly-kambing"><tr class="empty-r"><td colspan="8">Memuat data...</td></tr></tbody></table></div></div>
     </div>
 
@@ -631,7 +631,7 @@ body{font-family:"Inter",sans-serif;background:var(--bg);color:var(--text);line-
 // PASTE URL GOOGLE APPS SCRIPT DI BAWAH INI (sekali saja)
 // Contoh: var APPS_SCRIPT_URL = "https://script.google.com/macros/s/ABC.../exec";
 // ══════════════════════════════════════════════════════
-var APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbydYUecC7PwEU8Y_s7d6cfgDD4w7iP0gOh0BpKS311SKdFGvO6IrI6YhdDi43wqAigTmw/exec";  // <-- GANTI DENGAN URL ANDA
+var APPS_SCRIPT_URL = "";  // <-- GANTI DENGAN URL ANDA
 
 // Otomatis: pakai APPS_SCRIPT_URL jika ada, fallback ke localStorage
 var API_URL = APPS_SCRIPT_URL || localStorage.getItem("gs_api_url") || "";
@@ -650,7 +650,7 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 });
 var kLbl = ["Jan 23","Feb 23","Mar 23","Apr 23","Mei 23","Jun 23","Jul 23","Ags 23","Sep 23","Okt 23","Nov 23","Des 23","Jan 24","Feb 24","Mar 24","Apr 24","Mei 24","Jun 24","Jul 24","Ags 24","Sep 24","Okt 24","Nov 24","Des 24","Jan 25","Feb 25","Mar 25","Apr 25","Mei 25","Jun 25","Jul 25","Ags 25","Sep 25","Okt 25","Nov 25","Des 25"];
-var kBase = [47,54,56,56,57,60,61,65,72,75,77,90,90,91,97,98,92,76,74,57,72,83,80,90,91,99,97,98,92,76,74,57,50,57,50,90];
+var kBase = [47,54,56,56,57,60,61,65,72,75,77,90,90,91,97,98,92,76,74,57,72,83,80,90,91,99,97,98,92,76,74,57,50,57,52,92];
 var bLbl  = ["Jan 24","Feb 24","Mar 24","Apr 24","Mei 24","Jun 24","Jul 24","Ags 24","Sep 24","Okt 24","Nov 24","Des 24","Jan 25","Feb 25","Mar 25","Apr 25","Mei 25","Jun 25","Jul 25","Ags 25","Sep 25","Okt 25","Nov 25","Des 25"];
 var bBase = [12,12,12,12,12,12,12,12,12,55,61,60,56,40,115,38,38,38,7,0,0,0,0,38];
 var iLbl  = ["Januari","Februari","Maret","April"];
@@ -664,7 +664,7 @@ var charts = {};
 function openModal(){ document.getElementById("modalOverlay").classList.add("open"); document.getElementById("api-url").value = localStorage.getItem("gs_api_url") || ""; }
 function closeModal(){ document.getElementById("modalOverlay").classList.remove("open"); }
 function closeModalOutside(e){ if(e.target===document.getElementById("modalOverlay")) closeModal(); }
-function switchTab(name){ var names=["kambing","babi","itik","aset"]; document.querySelectorAll(".mtab").forEach(function(t,i){ t.classList.toggle("active",names[i]===name); }); document.querySelectorAll(".tab-content").forEach(function(c){ c.classList.remove("active"); }); document.getElementById("tab-"+name).classList.add("active"); }
+function switchTab(name){ var names=["kambing","babi","itik","aset"]; document.querySelectorAll(".mtab").forEach(function(t,i){ t.classList.toggle("active",names[i]===name); }); document.querySelectorAll(".tab-c").forEach(function(c){ c.classList.remove("active"); }); document.getElementById("tab-"+name).classList.add("active"); }
 function saveApiUrl(){ var url=document.getElementById("api-url").value.trim(); localStorage.setItem("gs_api_url",url); API_URL=url; if(url) document.getElementById("config-banner").classList.add("hidden"); }
 function testConnection(){
   var url=document.getElementById("api-url").value.trim();
